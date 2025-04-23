@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone - Experience Innovation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fab fa-apple"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#specs">Specs</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#pricing">Buy Now</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>iPhone</h1>
+            <p class="tagline">Beyond imagination.</p>
+            <a href="#pricing" class="cta-button">Pre-order now</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/iphone.png" alt="Latest iPhone" class="floating">
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <h2>Incredible Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-camera"></i>
+                <h3>Pro Camera System</h3>
+                <p>Capture moments in stunning detail</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-battery-full"></i>
+                <h3>All-day Battery</h3>
+                <p>Stay powered through your day</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-microchip"></i>
+                <h3>A17 Pro Chip</h3>
+                <p>Breakthrough performance</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Advanced Security</h3>
+                <p>Your privacy matters</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="specs">
+        <h2>Technical Specifications</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Display</h3>
+                <p>6.7" Super Retina XDR</p>
+            </div>
+            <div class="spec-item">
+                <h3>Storage</h3>
+                <p>Up to 1TB</p>
+            </div>
+            <div class="spec-item">
+                <h3>Camera</h3>
+                <p>48MP Main | 12MP Ultra Wide</p>
+            </div>
+            <div class="spec-item">
+                <h3>Video</h3>
+                <p>4K at 60 fps</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/gallery1.jpg" alt="iPhone Feature 1">
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery2.jpg" alt="iPhone Feature 2">
+            </div>
+            <div class="gallery-item">
+                <img src="images/gallery3.jpg" alt="iPhone Feature 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2>Choose Your iPhone</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>iPhone 128GB</h3>
+                <p class="price">$999</p>
+                <ul>
+                    <li>128GB Storage</li>
+                    <li>All Core Features</li>
+                    <li>Free Apple TV+ for 3 months</li>
+                </ul>
+                <a href="#" class="buy-button">Buy Now</a>
+            </div>
+            <div class="price-card featured">
+                <h3>iPhone 256GB</h3>
+                <p class="price">$1099</p>
+                <ul>
+                    <li>256GB Storage</li>
+                    <li>All Core Features</li>
+                    <li>Free Apple TV+ for 6 months</li>
+                </ul>
+                <a href="#" class="buy-button">Buy Now</a>
+            </div>
+            <div class="price-card">
+                <h3>iPhone 512GB</h3>
+                <p class="price">$1299</p>
+                <ul>
+                    <li>512GB Storage</li>
+                    <li>All Core Features</li>
+                    <li>Free Apple TV+ for 12 months</li>
+                </ul>
+                <a href="#" class="buy-button">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Complete Your Purchase</h2>
+            <form id="purchaseForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Shipping Address</label>
+                    <textarea id="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="model">Selected Model</label>
+                    <input type="text" id="model" readonly>
+                </div>
+                <button type="submit" class="submit-button">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <i class="fab fa-apple"></i>
+                <p>&copy; 2025 Apple Inc. All rights reserved.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
