@@ -129,25 +129,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  function showSuccessMessage(message) {
-    const successDiv = document.createElement('div');
-    successDiv.className = 'success-message';
+  function showNotification(message, isError = false) {
+    const notificationDiv = document.createElement('div');
+    notificationDiv.className = isError ? 'error-message' : 'success-message';
 
-    // Add icon and message container
-    successDiv.innerHTML = `
-            <i class="fas fa-check-circle"></i>
-            <span>${message}</span>
-        `;
+    notificationDiv.innerHTML = `
+      <i class="fas ${isError ? 'fa-exclamation-circle' : 'fa-check-circle'}"></i>
+      <span>${message}</span>
+    `;
 
-    document.body.appendChild(successDiv);
+    document.body.appendChild(notificationDiv);
 
-    // Add animation
-    setTimeout(() => successDiv.classList.add('show'), 10);
+    setTimeout(() => notificationDiv.classList.add('show'), 10);
 
-    // Remove after 3 seconds
     setTimeout(() => {
-      successDiv.classList.remove('show');
-      setTimeout(() => successDiv.remove(), 300);
+      notificationDiv.classList.remove('show');
+      setTimeout(() => notificationDiv.remove(), 300);
     }, 3000);
   }
 
@@ -175,18 +172,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
-        showSuccessMessage(
-          'Thank you for your purchase! We will contact you soon.'
-        );
+        showNotification('Thank you for your purchase! We will contact you soon.');
         modal.style.display = 'none';
         purchaseForm.reset();
       } else {
-        throw new Error('Submission failed');
+        throw new Error(data.message || 'Submission failed');
       }
     } catch (error) {
       console.error('Error:', error);
-      showSuccessMessage('An error occurred. Please try again later.');
+      showNotification(error.message || 'An error occurred. Please try again later.', true);
     }
   });
 });

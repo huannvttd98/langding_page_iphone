@@ -409,13 +409,11 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4);
 }
 
-/* Success Message */
-.success-message {
+/* Success and Error Messages */
+.success-message, .error-message {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #4caf50;
-  color: white;
   padding: 15px 25px;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -427,11 +425,21 @@ footer {
   gap: 10px;
 }
 
-.success-message.show {
+.success-message {
+  background-color: #4caf50;
+  color: white;
+}
+
+.error-message {
+  background-color: #f44336;
+  color: white;
+}
+
+.success-message.show, .error-message.show {
   transform: translateX(0);
 }
 
-.success-message i {
+.success-message i, .error-message i {
   font-size: 1.2rem;
 }
 
