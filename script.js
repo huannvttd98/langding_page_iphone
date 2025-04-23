@@ -125,10 +125,32 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    function showSuccessMessage(message) {
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success-message';
+
+        // Add icon and message container
+        successDiv.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <span>${message}</span>
+        `;
+
+        document.body.appendChild(successDiv);
+
+        // Add animation
+        setTimeout(() => successDiv.classList.add('show'), 10);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            successDiv.classList.remove('show');
+            setTimeout(() => successDiv.remove(), 300);
+        }, 3000);
+    }
+
     purchaseForm.addEventListener('submit', (e) => {
         e.preventDefault();
         // Here you would typically send the form data to a server
-        alert('Thank you for your purchase! We will contact you soon.');
+        showSuccessMessage('Thank you for your purchase! We will contact you soon.');
         modal.style.display = 'none';
         purchaseForm.reset();
     });

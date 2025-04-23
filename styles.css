@@ -93,6 +93,7 @@ body {
     font-size: 4rem;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -399,6 +400,32 @@ footer {
 .submit-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4);
+}
+
+/* Success Message */
+.success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transform: translateX(120%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.success-message.show {
+    transform: translateX(0);
+}
+
+.success-message i {
+    font-size: 1.2rem;
 }
 
 /* Responsive Design */
