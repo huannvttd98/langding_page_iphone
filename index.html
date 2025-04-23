@@ -143,25 +143,32 @@
             <form id="purchaseForm">
                 <div class="form-group">
                     <label for="name" data-lang="fullName">Full Name</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" pattern="[A-Za-z\s]+" required>
+                    <span class="error-message-validation" id="name-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="email" data-lang="email">Email</label>
                     <input type="email" id="email" required>
+                    <span class="error-message-validation" id="email-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="phone" data-lang="phoneNumber">Phone Number</label>
-                    <input type="tel" id="phone" required>
+                    <input type="tel" id="phone" pattern="[\d\s\(\)\+\-]+" placeholder="+84 123-456-789">
+                    <span class="error-message-validation" id="phone-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="address" data-lang="shippingAddress">Shipping Address</label>
                     <textarea id="address" required></textarea>
+                    <span class="error-message-validation" id="address-error"></span>
                 </div>
                 <div class="form-group">
                     <label for="model" data-lang="selectedModel">Selected Model</label>
                     <input type="text" id="model" readonly>
                 </div>
-                <button type="submit" class="submit-button" data-lang="completePurchase">Complete Purchase</button>
+                <button type="submit" class="submit-button" data-lang="completePurchase">
+                    <span>Complete Purchase</span>
+                    <div class="spinner"></div>
+                </button>
             </form>
         </div>
     </div>

@@ -151,22 +151,91 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 3000);
   }
 
+  // Form validation functions
+  const validateName = (name) => {
+    return /^[A-Za-z\s]+$/.test(name);
+  };
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    return /^\+?[\d\s-()]{10,}$/.test(phone);
+  };
+
+  const setFieldError = (fieldId, message) => {
+    const field = document.getElementById(fieldId);
+    const formGroup = field.closest('.form-group');
+    const errorSpan = document.getElementById(`${fieldId}-error`);
+
+    formGroup.classList.add('error');
+    formGroup.classList.remove('success');
+    errorSpan.textContent = message;
+  };
+
+  const setFieldSuccess = (fieldId) => {
+    const field = document.getElementById(fieldId);
+    const formGroup = field.closest('.form-group');
+
+    formGroup.classList.remove('error');
+    formGroup.classList.add('success');
+  };
+
+  const validateField = (fieldId, validatorFn, errorMessage) => {
+    const field = document.getElementById(fieldId);
+    const isValid = validatorFn(field.value.trim());
+
+    if (!isValid) {
+      setFieldError(fieldId, errorMessage);
+    } else {
+      setFieldSuccess(fieldId);
+    }
+
+    return isValid;
+  };
+
+  const setLoadingState = (isLoading) => {
+    const form = document.getElementById('purchaseForm');
+    const submitButton = form.querySelector('.submit-button');
+    console.log( " submitButton", submitButton);
+    if (isLoading) {
+      form.classList.add('form-disabled');
+      submitButton.classList.add('loading');
+    } else {
+      form.classList.remove('form-disabled');
+      submitButton.classList.remove('loading');
+    }
+  };
+
+  // Update the form submission event listener
   purchaseForm.addEventListener('submit', async e => {
     e.preventDefault();
 
+    // Validate all fields
+    const isNameValid = validateField('name', validateName, 'Please enter a valid name (letters and spaces only)');
+    const isEmailValid = validateField('email', validateEmail, 'Please enter a valid email address');
+    const isPhoneValid = validateField('phone', validatePhone, 'Please enter a valid phone number');
+    const isAddressValid = validateField('address', value => value.length >= 10, 'Please enter a complete address (minimum 10 characters)');
+
+    if (!isNameValid || !isEmailValid || !isPhoneValid || !isAddressValid) {
+      return;
+    }
+
     const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
       model: document.getElementById('model').value,
       storage: document.getElementById('model').value.match(/\d+GB/)[0],
-      notes: document.getElementById('address').value,
+      notes: document.getElementById('address').value.trim(),
       // Default values for now
       color: 'Not Selected',
       paymentMethod: 'Not Selected',
     };
 
     try {
+      setLoadingState(true);
       const response = await fetch('http://localhost:3000/api/submit', {
         method: 'POST',
         headers: {
@@ -181,12 +250,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         showNotification('Thank you for your purchase! We will contact you soon.');
         modal.style.display = 'none';
         purchaseForm.reset();
+        // Reset validation states
+        document.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('success', 'error');
+        });
       } else {
         throw new Error(data.message || 'Submission failed');
       }
     } catch (error) {
       console.error('Error:', error);
       showNotification(error.message || 'An error occurred. Please try again later.', true);
+    } finally {
+      setLoadingState(false);
     }
+  });
+
+  // Add input event listeners for real-time validation
+  document.getElementById('name').addEventListener('input', () => {
+    validateField('name', validateName, 'Please enter a valid name (letters and spaces only)');
+  });
+
+  document.getElementById('email').addEventListener('input', () => {
+    validateField('email', validateEmail, 'Please enter a valid email address');
+  });
+
+  document.getElementById('phone').addEventListener('input', () => {
+    validateField('phone', validatePhone, 'Please enter a valid phone number');
+  });
+
+  document.getElementById('address').addEventListener('input', () => {
+    validateField('address', value => value.length >= 10, 'Please enter a complete address (minimum 10 characters)');
   });
 });
