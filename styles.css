@@ -57,6 +57,23 @@ body {
     color: var(--primary-color);
 }
 
+.language-selector {
+    margin-left: 1rem;
+}
+
+#languageSelect {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#languageSelect:hover {
+    border-color: var(--primary-color);
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -408,5 +425,10 @@ footer {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .language-selector {
+        display: block !important;
+        margin: 1rem 0;
     }
 }

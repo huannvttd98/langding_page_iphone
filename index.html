@@ -13,18 +13,25 @@
             <i class="fab fa-apple"></i>
         </div>
         <ul class="nav-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#specs">Specs</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#pricing">Buy Now</a></li>
+            <li><a href="#features" data-lang="features">Features</a></li>
+            <li><a href="#specs" data-lang="specs">Specs</a></li>
+            <li><a href="#gallery" data-lang="gallery">Gallery</a></li>
+            <li><a href="#pricing" data-lang="buyNow">Buy Now</a></li>
+            <li class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </li>
         </ul>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
             <h1>iPhone</h1>
-            <p class="tagline">Beyond imagination.</p>
-            <a href="#pricing" class="cta-button">Pre-order now</a>
+            <p class="tagline" data-lang="tagline">Beyond imagination.</p>
+            <a href="#pricing" class="cta-button" data-lang="preorder">Pre-order now</a>
         </div>
         <div class="hero-image">
             <img src="images/iphone.png" alt="Latest iPhone" class="floating">
@@ -32,55 +39,54 @@
     </header>
 
     <section id="features" class="features">
-        <h2>Incredible Features</h2>
+        <h2 data-lang="incredibleFeatures">Incredible Features</h2>
         <div class="feature-grid">
             <div class="feature-card">
                 <i class="fas fa-camera"></i>
-                <h3>Pro Camera System</h3>
-                <p>Capture moments in stunning detail</p>
+                <h3 data-lang="cameraSystem">Pro Camera System</h3>
+                <p data-lang="cameraDesc">Capture moments in stunning detail</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-battery-full"></i>
-                <h3>All-day Battery</h3>
-                <p>Stay powered through your day</p>
+                <h3 data-lang="battery">All-day Battery</h3>
+                <p data-lang="batteryDesc">Stay powered through your day</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-microchip"></i>
-                <h3>A17 Pro Chip</h3>
-                <p>Breakthrough performance</p>
+                <h3 data-lang="chip">A17 Pro Chip</h3>
+                <p data-lang="chipDesc">Breakthrough performance</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-shield-alt"></i>
-                <h3>Advanced Security</h3>
-                <p>Your privacy matters</p>
+                <h3 data-lang="security">Advanced Security</h3>
+                <p data-lang="securityDesc">Your privacy matters</p>
             </div>
         </div>
     </section>
 
     <section id="specs" class="specs">
-        <h2>Technical Specifications</h2>
+        <h2 data-lang="specifications">Technical Specifications</h2>
         <div class="specs-grid">
             <div class="spec-item">
-                <h3>Display</h3>
-                <p>6.7" Super Retina XDR</p>
+                <h3 data-lang="display">Display</h3>
+                <p data-lang="displayDesc">6.7" Super Retina XDR</p>
             </div>
             <div class="spec-item">
-                <h3>Storage</h3>
-                <p>Up to 1TB</p>
+                <h3 data-lang="storage">Storage</h3>
+                <p data-lang="storageDesc">Up to 1TB</p>
             </div>
             <div class="spec-item">
-                <h3>Camera</h3>
-                <p>48MP Main | 12MP Ultra Wide</p>
+                <h3 data-lang="camera">Camera</h3>
+                <p data-lang="cameraSpecs">48MP Main | 12MP Ultra Wide</p>
             </div>
             <div class="spec-item">
-                <h3>Video</h3>
-                <p>4K at 60 fps</p>
+                <h3 data-lang="video">Video</h3>
+                <p data-lang="videoSpecs">4K at 60 fps</p>
             </div>
         </div>
     </section>
-
     <section id="gallery" class="gallery">
-        <h2>Gallery</h2>
+        <h2 data-lang="galleryTitle">Gallery</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
                 <img src="images/gallery1.jpg" alt="iPhone Feature 1">
@@ -95,37 +101,37 @@
     </section>
 
     <section id="pricing" class="pricing">
-        <h2>Choose Your iPhone</h2>
+        <h2 data-lang="pricingTitle">Choose Your iPhone</h2>
         <div class="pricing-grid">
             <div class="price-card">
-                <h3>iPhone 128GB</h3>
-                <p class="price">$999</p>
+                <h3 data-lang="model128">iPhone 128GB</h3>
+                <p class="price" data-lang="price128">$999</p>
                 <ul>
-                    <li>128GB Storage</li>
-                    <li>All Core Features</li>
-                    <li>Free Apple TV+ for 3 months</li>
+                    <li data-lang="storage128">128GB Storage</li>
+                    <li data-lang="coreFeatures">All Core Features</li>
+                    <li data-lang="appleTV3">Free Apple TV+ for 3 months</li>
                 </ul>
-                <a href="#" class="buy-button">Buy Now</a>
+                <a href="#" class="buy-button" data-lang="buyNow">Buy Now</a>
             </div>
             <div class="price-card featured">
-                <h3>iPhone 256GB</h3>
-                <p class="price">$1099</p>
+                <h3 data-lang="model256">iPhone 256GB</h3>
+                <p class="price" data-lang="price256">$1099</p>
                 <ul>
-                    <li>256GB Storage</li>
-                    <li>All Core Features</li>
-                    <li>Free Apple TV+ for 6 months</li>
+                    <li data-lang="storage256">256GB Storage</li>
+                    <li data-lang="coreFeatures">All Core Features</li>
+                    <li data-lang="appleTV6">Free Apple TV+ for 6 months</li>
                 </ul>
-                <a href="#" class="buy-button">Buy Now</a>
+                <a href="#" class="buy-button" data-lang="buyNow">Buy Now</a>
             </div>
             <div class="price-card">
-                <h3>iPhone 512GB</h3>
-                <p class="price">$1299</p>
+                <h3 data-lang="model512">iPhone 512GB</h3>
+                <p class="price" data-lang="price512">$1299</p>
                 <ul>
-                    <li>512GB Storage</li>
-                    <li>All Core Features</li>
-                    <li>Free Apple TV+ for 12 months</li>
+                    <li data-lang="storage512">512GB Storage</li>
+                    <li data-lang="coreFeatures">All Core Features</li>
+                    <li data-lang="appleTV12">Free Apple TV+ for 12 months</li>
                 </ul>
-                <a href="#" class="buy-button">Buy Now</a>
+                <a href="#" class="buy-button" data-lang="buyNow">Buy Now</a>
             </div>
         </div>
     </section>
@@ -134,29 +140,29 @@
     <div id="purchaseModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Complete Your Purchase</h2>
+            <h2 data-lang="purchaseTitle">Complete Your Purchase</h2>
             <form id="purchaseForm">
                 <div class="form-group">
-                    <label for="name">Full Name</label>
+                    <label for="name" data-lang="fullName">Full Name</label>
                     <input type="text" id="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email" data-lang="email">Email</label>
                     <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone" data-lang="phoneNumber">Phone Number</label>
                     <input type="tel" id="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="address">Shipping Address</label>
+                    <label for="address" data-lang="shippingAddress">Shipping Address</label>
                     <textarea id="address" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="model">Selected Model</label>
+                    <label for="model" data-lang="selectedModel">Selected Model</label>
                     <input type="text" id="model" readonly>
                 </div>
-                <button type="submit" class="submit-button">Complete Purchase</button>
+                <button type="submit" class="submit-button" data-lang="completePurchase">Complete Purchase</button>
             </form>
         </div>
     </div>
@@ -168,7 +174,7 @@
                 <p>&copy; 2025 Apple Inc. All rights reserved.</p>
             </div>
             <div class="footer-section">
-                <h4>Connect With Us</h4>
+                <h4 data-lang="connectWithUs">Connect With Us</h4>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>

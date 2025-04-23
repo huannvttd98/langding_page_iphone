@@ -1,4 +1,52 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Language translations will be loaded dynamically
+let translations = {};
+
+async function loadTranslations(language) {
+    try {
+        const response = await fetch(`lang/${language}.json`);
+        translations[language] = await response.json();
+    } catch (error) {
+        console.error(`Error loading ${language} translations:`, error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load all translations
+    await Promise.all([
+        loadTranslations('en'),
+        loadTranslations('es'),
+        loadTranslations('fr')
+    ]);
+
+    // Language switching functionality
+    const languageSelect = document.getElementById('languageSelect');
+
+    // Load saved language preference
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'en';
+    languageSelect.value = savedLanguage;
+    updateLanguage(savedLanguage);
+
+    languageSelect.addEventListener('change', (e) => {
+        const language = e.target.value;
+        updateLanguage(language);
+        localStorage.setItem('preferredLanguage', language);
+        document.documentElement.lang = language;
+    });
+
+    function updateLanguage(language) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-lang');
+            if (translations[language] && translations[language][key]) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translations[language][key];
+                } else {
+                    element.textContent = translations[language][key];
+                }
+            }
+        });
+    }
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
