@@ -37,36 +37,43 @@ landing_page/
 ## Key Features Implementation
 
 ### Responsive Navigation
+
 - Fixed navigation bar with backdrop blur effect
 - Smooth scrolling to sections
 - Mobile-responsive menu
 
 ### Hero Section
+
 - Split layout with content and floating image
 - Gradient text effects
 - Call-to-action button
 
 ### Features Grid
+
 - Card-based layout using CSS Grid
 - Hover animations
 - Icon integration
 
 ### Technical Specifications
+
 - Clean, minimalist design
 - Grid-based layout
 - Responsive sizing
 
 ### Image Gallery
+
 - Responsive grid layout
 - Image hover effects
 - Optimized for performance
 
 ### Pricing Section
+
 - Interactive pricing cards
 - Featured plan highlighting
 - Modal-based purchase form
 
 ### Purchase Modal
+
 - Form validation
 - Responsive design
 - Smooth animations
@@ -102,3 +109,8 @@ landing_page/
 ## License
 
 This project is available for personal and commercial use.
+
+## Tutorial
+
+Tutorial get key google
+https://chatgpt.com/share/6808894e-aee8-8010-b5a6-0133e1e2162f

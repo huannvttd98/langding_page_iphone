@@ -1,0 +1,11 @@
+{
+  "name": "iphone-landing",
+  "version": "1.0.0",
+  "description": "iPhone landing page with Google Sheets integration",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
